@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SistemaDeMonitoramento.Models.Residencias>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Registrados</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark btn-lg active btn-sm" role="button" aria-pressed="true">Registrar</a>
+</p>
+<table class="table table-hover table-dark">
+    <thead class="thead">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.CEP)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Ambiente.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="tbody">
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CEP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ambiente.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ResidenciaId" class="btn btn-success btn-lg active btn-sm" role="button" aria-pressed="true">Alterar</a> |
+                <a asp-action="Details" asp-route-id="@item.ResidenciaId" class="btn btn-info btn-lg active btn-sm" role="button" aria-pressed="true">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.ResidenciaId" class="btn btn-danger btn-lg active btn-sm" role="button" aria-pressed="true">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

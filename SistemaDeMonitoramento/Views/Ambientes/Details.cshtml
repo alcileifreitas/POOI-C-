@@ -1,0 +1,30 @@
+﻿@model SistemaDeMonitoramento.Models.Ambientes
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Ambientes</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Aparelho.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Aparelho.Nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AmbienteId" class="btn btn-success btn-lg active btn-sm" role="button" aria-pressed="true">Alterar</a> |
+    <a asp-action="Index" class="btn btn-warning btn-lg active btn-sm" role="button" aria-pressed="true">Cancelar</a>
+</div>

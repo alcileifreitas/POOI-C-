@@ -1,0 +1,45 @@
+﻿@model SistemaDeMonitoramento.Models.Residencias
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Registrar</h1>
+
+<h4>Residencias</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cidade" class="control-label"></label>
+                <input asp-for="Cidade" class="form-control" placeholder="Informe a Cidade" maxlength="50"/>
+                <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bairro" class="control-label"></label>
+                <input asp-for="Bairro" class="form-control" placeholder="Informe o Bairro" maxlength="50"/>
+                <span asp-validation-for="Bairro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CEP" class="control-label"></label>
+                <input asp-for="CEP" class="form-control" placeholder="Ex: 00000-000" maxlength="9"/>
+                <span asp-validation-for="CEP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmbienteId" class="control-label"></label>
+                <select asp-for="AmbienteId" class="form-control" asp-items="@(new SelectList(ViewBag.Ambiente, "AmbienteId","Nome"))"></select>
+                <span asp-validation-for="AmbienteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success btn-sm" />
+                <a asp-action="Index" class="btn btn-warning btn-lg active btn-sm" role="button" aria-pressed="true">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

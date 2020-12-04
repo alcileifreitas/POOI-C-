@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SistemaDeMonitoramento.Models.Usuarios>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Registrados</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark btn-lg active btn-sm" role="button" aria-pressed="true">Registrar</a>
+</p>
+<table class="table table-hover table-dark">
+    <thead class="thead">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="tbody">
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UsuarioId" class="btn btn-success btn-lg active btn-sm" role="button" aria-pressed="true">Alterar</a> |
+                <a asp-action="Details" asp-route-id="@item.UsuarioId" class="btn btn-info btn-lg active btn-sm" role="button" aria-pressed="true">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.UsuarioId" class="btn btn-danger btn-lg active btn-sm" role="button" aria-pressed="true">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
